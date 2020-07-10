@@ -1,0 +1,1 @@
+//With the dispatch we activate  the reducer and with getState we obtain the Initialdata
