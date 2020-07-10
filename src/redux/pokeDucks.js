@@ -57,3 +57,20 @@ export const siguientePokemonAccion = () => async (dispatch, getState) => {
         console.log(error)
     }
 }
+
+export const anteriorPokemonAccion = () => async (dispatch, getState) => {
+
+    const {previous} = getState().pokemones
+
+    try {
+        const res = await axios(previous)
+        dispatch({
+            type: SIGUIENTE_POKEMONES_EXITO,
+            payload: res.data
+        })
+
+    }catch(error) {
+        console.log(error)
+    }
+
+}
