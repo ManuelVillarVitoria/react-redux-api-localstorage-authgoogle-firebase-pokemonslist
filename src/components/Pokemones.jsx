@@ -6,14 +6,14 @@ import {obtenerPokemonesAccion, siguientePokemonAccion} from '../redux/pokeDucks
 const Pokemones = () => {
     const dispatch = useDispatch()
 
-    const pokemones = useSelector(store => store.pokemones.array)
+    const pokemones = useSelector(store => store.pokemones.results)
     console.log(pokemones)
 
     return (  
         <div>
             Lista de Pokemones
             <button onClick={() => dispatch(obtenerPokemonesAccion())}>Get Pokemones</button>
-            <button onClick={() => dispatch(siguientePokemonAccion(20))}>Siguiente</button>
+            <button onClick={() => dispatch(siguientePokemonAccion())}>Siguiente</button>
             <ul>
                 {
                     pokemones.map(item => (
