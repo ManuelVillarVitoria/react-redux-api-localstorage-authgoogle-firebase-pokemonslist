@@ -2,9 +2,11 @@ import {createStore, combineReducers, compose, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
 
 import pokeReducer from './pokeDucks'
+import usuarioReducer from './usuarioDucks'
 
 const rootReducer = combineReducers({
-    pokemones: pokeReducer
+    pokemones: pokeReducer,
+    usuario: usuarioReducer
 })
 
 //https://github.com/zalmoxisus/redux-devtools-extension#12-advanced-store-setup
