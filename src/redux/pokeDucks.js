@@ -34,7 +34,6 @@ export default function pokeReducer(state = dataInicial, action){
 export const unPokeDetalleAccion = (url = 'https://pokeapi.co/api/v2/pokemon/1/') => async(dispatch) => {
 
    if(localStorage.getItem(url)){
-        console.log('desde localStorage')
         dispatch({
             type: POKE_INFO_EXITO,
             payload: JSON.parse(localStorage.getItem(url))
@@ -44,7 +43,6 @@ export const unPokeDetalleAccion = (url = 'https://pokeapi.co/api/v2/pokemon/1/'
    
     try{
         const res = await axios(url)
-        console.log('desde API')
         dispatch({
             type: POKE_INFO_EXITO,
             payload: {
@@ -69,7 +67,6 @@ export const unPokeDetalleAccion = (url = 'https://pokeapi.co/api/v2/pokemon/1/'
 export const obtenerPokemonesAccion = () => async(dispatch) => {
 
     if(localStorage.getItem('offset=0')){
-        console.log('datos guardados')
         dispatch({
             type: OBTENER_POKEMONES_EXITO,
             payload: JSON.parse(localStorage.getItem('offset=0'))
@@ -80,7 +77,6 @@ export const obtenerPokemonesAccion = () => async(dispatch) => {
     try{
         console.log('datos desde la API')
         const res = await axios.get(`https://pokeapi.co/api/v2/pokemon?offset=0&limit=10`)
-        console.log(res.data)
         dispatch({
             type: OBTENER_POKEMONES_EXITO,
             payload: res.data
@@ -98,7 +94,6 @@ export const siguientePokemonAccion = () => async (dispatch, getState) => {
     const {next} = getState().pokemones
 
     if(localStorage.getItem(next)){
-        console.log('datos guardados')
         dispatch({
             type: OBTENER_POKEMONES_EXITO,
             payload: JSON.parse(localStorage.getItem(next))
@@ -107,7 +102,6 @@ export const siguientePokemonAccion = () => async (dispatch, getState) => {
     }
 
     try {
-        console.log('datos desde la API')
         const res = await axios(next)
         dispatch({
             type: SIGUIENTE_POKEMONES_EXITO,
@@ -126,7 +120,6 @@ export const anteriorPokemonAccion = () => async (dispatch, getState) => {
     const {previous} = getState().pokemones
 
     if(localStorage.getItem(previous)){
-        console.log('datos guardados')
         dispatch({
             type: OBTENER_POKEMONES_EXITO,
             payload: JSON.parse(localStorage.getItem(previous))

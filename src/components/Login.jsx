@@ -12,7 +12,6 @@ const Login = (props) => {
     const activo = useSelector(store => store.usuario.activo)
 
     React.useEffect(() => {
-        console.log(activo)
         if(activo) {
             props.history.push('/')
         }
