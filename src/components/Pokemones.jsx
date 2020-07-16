@@ -20,12 +20,28 @@ const Pokemones = () => {
 
 
     return (  
-        <div className="row">
+        <div className="row mt-5">
             <div className="col-md-6">
-               <h3>Lista de Pokemones</h3>
-                <br/>
 
-                <div className="d-flex justify-content-between">
+               <h3>Lista de Pokemones</h3>
+
+                <ul className="list-group mt-4">
+                        {
+                            pokemones.map(item => (
+                                <li key={item.name} className="list-group-item text-uppercase">
+                                    {item.name} 
+                                    <button 
+                                    className="btn btn-dark btn-sm float-right"
+                                    onClick={() => dispatch(unPokeDetalleAccion(item.url))}
+                                    >
+                                        Info
+                                    </button>
+                                </li>
+                            ))
+                        }
+                    </ul>
+
+                <div className="d-flex justify-content-between mt-4">
                     {
                         pokemones.length === 0 && 
                         <button onClick={() => dispatch(obtenerPokemonesAccion())} className="btn btn-dark">Get Pokemones</button>
@@ -42,21 +58,6 @@ const Pokemones = () => {
                     }
                 </div>
 
-                <ul className="list-group mt-3">
-                    {
-                        pokemones.map(item => (
-                            <li key={item.name} className="list-group-item text-uppercase">
-                                {item.name} 
-                                <button 
-                                className="btn btn-dark btn-sm float-right"
-                                onClick={() => dispatch(unPokeDetalleAccion(item.url))}
-                                >
-                                    Info
-                                </button>
-                            </li>
-                        ))
-                    }
-                </ul>
             </div>
             <div className="col-md-6">
                 <h3>Detalle Pokemon</h3>

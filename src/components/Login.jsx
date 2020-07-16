@@ -10,7 +10,6 @@ const Login = (props) => {
 
     const loading = useSelector(store => store.usuario.loading)
     const activo = useSelector(store => store.usuario.activo)
-    console.log(activo)
 
     React.useEffect(() => {
         console.log(activo)
