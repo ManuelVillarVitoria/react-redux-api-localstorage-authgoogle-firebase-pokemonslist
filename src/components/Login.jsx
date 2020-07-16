@@ -17,6 +17,7 @@ const Login = (props) => {
         if(activo) {
             props.history.push('/')
         }
+    // eslint-disable-next-line
     }, [activo])
 
     return (
