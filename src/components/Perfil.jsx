@@ -6,6 +6,7 @@ import {actualizarUsuarioAccion} from '../redux/usuarioDucks'
 const Perfil = () => {
 
     const usuario = useSelector(store => store.usuario.user)
+    const loading = useSelector(store => store.usuario.loading)
     //console.log(usuario)
 
     const [nombreUsuario, setNombreUsuario] = useState(usuario.displayName)
@@ -14,7 +15,12 @@ const Perfil = () => {
     const dispatch = useDispatch()
 
     const actualizarUsuario = () => {
-        dispatch(actualizarUsuarioAccion('Manuel 2.0'))
+        if(!nombreUsuario.trim()){
+            console.log('Nombre Vacío')
+            return
+        }
+        dispatch(actualizarUsuarioAccion(nombreUsuario))
+        setActivarFormulario(false)
     }
 
     return (
@@ -31,6 +37,17 @@ const Perfil = () => {
                             Editar Nombre
                     </button>
                 </div>
+                {
+                    loading &&
+                    <div className="card-body">
+                        <div className="d-flex justify-content-center my-3">
+                            <div className="spinner-border" role="status">
+                                <span className="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                }
+
                 {
                     acitvarFormulario &&
 
