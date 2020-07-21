@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState} from 'react'
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
+import {actualizarUsuarioAccion} from '../redux/usuarioDucks'
 
 const Perfil = () => {
 
@@ -10,8 +11,10 @@ const Perfil = () => {
     const [nombreUsuario, setNombreUsuario] = useState(usuario.displayName)
     const [acitvarFormulario, setActivarFormulario] = useState(false)
 
-    const actulizarUsuario = () => {
+    const dispatch = useDispatch()
 
+    const actualizarUsuario = () => {
+        dispatch(actualizarUsuarioAccion('Manuel 2.0'))
     }
 
     return (
@@ -45,7 +48,7 @@ const Perfil = () => {
                                         <button 
                                             className="btn btn-dark" 
                                             type="button"
-                                            onClick={() => actulizarUsuario()}
+                                            onClick={() => actualizarUsuario()}
                                         >
                                             Actualizar
                                         </button>
