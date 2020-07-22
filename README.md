@@ -1,68 +1,74 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# `Pokemons List`
 
-## Available Scripts
+This app is a SPA that connect with a Pokemon API, that have 3 protected routes (Login, Profile, Home). <br />
+On the Login page the user can sign up or login with Google Authentification. <br />
+On the Home page is displayed a list of pokemons names with his detail. <br />
+On the Profile Page is displayed the image, name and email of user, where the name and image can be updated. <br />
 
-In the project directory, you can run:
+This is the frontend repository, built with React Hooks + Redux + Firebase + Bootstrap 4 + LocalStorage. 
+Check out the [DEPLOYED SITE]( )
 
-### `npm start`
+## UI
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Home
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+![Home](screenshots/inicio.png)
 
-### `npm test`
+### Profile
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Profile](screenshots/perfil.png)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Built with 🛠️
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+_The **Technologies & Core Packages** used to create the project have been the following:_
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **Redux** - State Management <br />
+   <code>npm i redux react-redux redux-devtools redux-thunk</code> <br />
+    Extensions of Google Chrome: [Redux DevTools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?utm_source=chrome-ntp-icon)<br />
+2. **React Hooks(useState, useDispatch, useSelector)** - Functional Components <br />
+   <code>npx create-react-app my-app</code> <br />
+   Extensions of Google Chrome: [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?utm_source=chrome-ntp-icon)<br />
+3. **React Router** - Routing <br />
+   <code>npm i react-router-dom</code> <br />
+4. **Bootstrap 4** -Styles <br />
+   <code>npm i bootstrap</code> <br />
+5. **Axios** - Network calls <br />
+   <code>npm i axios</code> <br />
+6. **API** - [PokeApi](https://pokeapi.co/) <br />
+7. **Firestore(Firebase)** - Data Base <br />
+   <code>npm i firebase</code> <br />
+8. **Authentication with Google(Firebase)** - Login/Signup <br />
+   <code>npm i firebase</code> <br />
+9. **Storage(Firebase)** - Image Management <br />
+   <code>npm i firebase</code>
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Features ✒️
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Login/Signup with Google Authentication(Firebase).
+2. SPA with protected Routes.
+3. Displaying list the pokemons names with pagination through consuming an API, <br />
+and  a detail of his image.
+4. Saving the API's requests to the LocalStorage.
+5. Displaying user's profile page, where we can updating the user name and profile <br />
+image throught the Storage(Firebase).
+6. The user's data will be save in Firestore DB(Firebase) and LocalStorage.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Running locally 🔧
 
-## Learn More
+Do <code>git clone</code> to this repository and then run the following:<br />
+<code>npm i</code> and <code>npm start</code>*(localhost:3000)* to see the app in action.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Expressions of gratitude 🎁
 
-### Code Splitting
+* First of all, I thank the only true God, Father, Son and Holy Spirit. <br />
+"For from him and through him and for him are all things. <br />
+To him be the glory forever! Amen. <br />
+<code>(Romans 11:36)</code> 📢
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+---
+⌨️ with ❤️ by [ManuelVillarVitoria](https://github.com/ManuelVillarVitoria) 😊
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
