@@ -1,4 +1,4 @@
-import {auth, firebase, db} from '../firebase'
+import {auth, firebase, db, storage} from '../firebase'
 
 // data inicial
 const dataInicial = {
@@ -100,7 +100,7 @@ export const actualizarUsuarioAccion = (nombreActualizado) => async (dispatch, g
     })
 
     const {user} = getState().usuario
-    console.log(user)
+    //console.log(user)
 
     try {
 
@@ -111,6 +111,40 @@ export const actualizarUsuarioAccion = (nombreActualizado) => async (dispatch, g
         const usuario = {
             ...user,
             displayName: nombreActualizado
+        }
+
+        dispatch({
+            type: USUARIO_EXITO,
+            payload: usuario
+        })
+        localStorage.setItem('usuario', JSON.stringify(usuario))
+        
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const editarFotoAccion = (imagenEditada) => async (dispatch, getState) => {
+
+    dispatch({
+        type: LOADING
+    })
+    const {user} = getState().usuario
+
+    try {
+        //Creamos dos carpetas donde ponemos nombre del archivo de la foto
+        const imagenRef = await storage.ref().child(user.email).child('foto perfil')
+        await imagenRef.put(imagenEditada) //Guardamos la imagen
+        const imagenURL =  await imagenRef.getDownloadURL() //Obtenemos la imagen de la foto actualizada
+        //Actualizamos la DB con la imagen actualizada del LocalStorage
+
+        await db.collection('usuarios').doc(user.email).update({
+            photoURL: imagenURL
+        })
+
+        const usuario = {
+            ...user,
+            photoURL: imagenURL
         }
 
         dispatch({
